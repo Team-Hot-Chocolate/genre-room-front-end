@@ -22,3 +22,7 @@ This is an entertainment recommendation site. The user will create an account in
 
 **Entity Relationship**
 ![EntityRelationship](./EntityRelationship.png)
+
+**Wire Frames**
+![Wireframes](./GenreRoomWire.jpg)
+
