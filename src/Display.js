@@ -22,7 +22,7 @@ class Display extends React.Component {
 
   getMovies = async () => {
     console.log('getting movies');
-    const getMovies = await axios.post(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
+    const getMovies = await axios.get(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
     // gets movies
   }
 
@@ -38,7 +38,7 @@ class Display extends React.Component {
       await axios.delete(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
     } else {
       console.log('adding genre');
-    const genre = await axios.get(`${API_SERVER}/${this.state.genre}`, {email: this.props.auth0.user.email})
+    const genre = await axios.put(`${API_SERVER}/user/${this.state.genre}`, {email: this.props.auth0.user.email})
     }
     // updating the genre
   }
