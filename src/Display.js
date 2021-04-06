@@ -22,7 +22,7 @@ class Display extends React.Component {
 
   getMovies = async () => {
     console.log('getting movies');
-    const getMovies = await axios.get(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
+    const getMovies = await axios.get(`${API_SERVER}/movies`, {email: this.props.auth0.user.email})
     // gets movies
   }
 
