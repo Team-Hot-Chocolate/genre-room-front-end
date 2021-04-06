@@ -17,18 +17,29 @@ class Display extends React.Component {
   }
 
   componentDidMount = async () => {
+    this.getMovies();
+  }
+
+  getMovies = async () => {
+    console.log('getting movies');
     const getMovies = await axios.post(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
-    // getMovies when the page loads
+    // gets movies
   }
 
   updateStateGenre = (e) => {
+    console.log('testing', e.target.value);
     this.setState({ genre: e.target.value });
     // updating the state of genre/onchange
   }
 
-  addGenre = async () => {
-    console.log(this.state.genre);
+  updateGenre = async () => {
+    if (this.state.genre === 'Remove Genre'){
+      console.log('removing genre');
+      await axios.delete(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
+    } else {
+      console.log('adding genre');
     const genre = await axios.get(`${API_SERVER}/${this.state.genre}`, {email: this.props.auth0.user.email})
+    }
     // updating the genre
   }
 
@@ -38,7 +49,8 @@ class Display extends React.Component {
         <p>You are logged in</p>
         <AddGenre 
         updateStateGenre={this.updateStateGenre}
-        addGenre={this.addGenre}/>
+        updateGenre={this.updateGenre}
+        getMovies={this.getMovies}/>
       </>
     )
   }
