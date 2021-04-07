@@ -24,8 +24,8 @@ class AddGenre extends React.Component {
   render() {
     return (
       <>
-      <Button onClick={this.props.getMovies}>Get Recommendations</Button>
-      <Button onClick={this.displayModal}>Update Genre</Button>
+      <Button className="button" onClick={this.props.getMovies}>Get Recommendations</Button>
+      <Button className="button" onClick={this.displayModal}>Update Genre</Button>
       <Modal show={this.state.displayModal}>
         <Modal.Dialog>
           <Modal.Header closeButton>

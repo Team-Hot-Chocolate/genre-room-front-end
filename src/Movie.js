@@ -10,18 +10,21 @@ class Movie extends React.Component {
   render() {
     return (
       <center>
-        <Container>
+        <Container className="wholeMovie">
           <Row className="container">
             <Col className="img" xs={6} md={4}>
               <Image src={`https://www.themoviedb.org/t/p/original${this.props.src}`} thumbnail />
             </Col>
-              <Card className="card" style={{ width: '18rem' }}>
-                <Card.Title>{this.props.title}</Card.Title>
+              <Card className="card" style={{ width: '24rem' }}>
+                <Card.Title><h3>{this.props.title}</h3></Card.Title>
                 {/* <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/original${this.props.src}`} /> */}
                 <Card.Body>
                   <Card.Text>
-                    {this.props.releaseDate}
-                    {this.props.description}
+                    <b>Release Date:</b><br></br>{this.props.releaseDate}<br></br>
+                    <br></br>
+                    <b>Rating:</b><br></br>{this.props.rating}<br></br>
+                    <br></br>
+                    <b>Summary:</b><br></br>{this.props.description}<br></br>
                   </Card.Text>
                 </Card.Body>
               </Card>
