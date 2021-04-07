@@ -1,3 +1,11 @@
+/* .movieDisplay {
+  background: url("./images/backgroundTV.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
 .movieDisplay {
   text-align: center;
   margin: 0 auto;
@@ -15,4 +23,13 @@
 
 .card {
   margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.button {
+  margin: 3rem 2rem 3rem 2rem;
 }
