@@ -32,7 +32,7 @@ class GenreForm extends React.Component {
               <option value="10751">Family</option>
               <option value="14">Fantasy</option>
               <option value="36">History</option>
-              <option value="Horror">Horror</option>
+              <option value="27">Horror</option>
               <option value="10402">Music</option>
               <option value="9648">Mystery</option>
               <option value="10749">Romance</option>
