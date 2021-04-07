@@ -16,19 +16,20 @@ class Display extends React.Component {
       title: '',
       description: '',
       releaseDate: '',
-      src: '',
-      genres: ''
+      src: ''
 
     }
   }
 
   componentDidMount = async () => {
-    this.getMovies();
+    const getUserInfo = await axios.get(`${API_SERVER}/user`, {email: this.props.auth0.user.email});
+    //add genre to state
+    console.log(getUserInfo);
   }
 
   getMovies = async () => {
     if (this.state.genre.length < 1 || this.state.genre === 'Remove Genre'){
-      console.log(this.state.genre);
+      console.log('no genre');
       const movieNoGenre = await axios.get(`${API_SERVER}/movies`, {email: this.props.auth0.user.email})
       console.log('movies without genre', movieNoGenre);
       this.setState ({ movie: movieNoGenre.data, title: movieNoGenre.data.original_title, description: movieNoGenre.data.overview, releaseDate: movieNoGenre.data.release_date, src: movieNoGenre.data.poster_path});
@@ -51,13 +52,12 @@ class Display extends React.Component {
     // updating the state of genre/onchange
   }
 
-  updateGenre = async () => {
+  updateGenre = async (e) => {
     if (this.state.genre === 'Remove Genre'){
       console.log('removing genre');
       await axios.delete(`${API_SERVER}/user`, {email: this.props.auth0.user.email})
     } else {
-      console.log('adding genre');
-    await axios.put(`${API_SERVER}/user/${this.state.genre}`, {email: this.props.auth0.user.email})
+    await axios.put(`${API_SERVER}/user/${parseInt(this.state.genre)}`, {email: this.props.auth0.user.email})
     }
     // updating the genre
   }

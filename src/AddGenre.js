@@ -35,7 +35,8 @@ class AddGenre extends React.Component {
           <Modal.Body>
             <GenreForm  
             updateStateGenre={this.props.updateStateGenre}
-            updateGenre={this.props.updateGenre}/>
+            updateGenre={this.props.updateGenre}
+            closeModal={this.closeModal}/>
           </Modal.Body>
 
           <Modal.Footer>

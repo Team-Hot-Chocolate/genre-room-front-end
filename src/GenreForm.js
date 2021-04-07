@@ -5,6 +5,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 class GenreForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {a: ''}
+  }
+  
+  onSubmitAction = (e) => {
+    e.preventDefault();
+    this.props.updateGenre();
+    this.props.closeModal();
+  }
+
   render() {
     return (
       <Form >
@@ -44,7 +55,7 @@ class GenreForm extends React.Component {
             </Form.Control>
           </Col>
           <Col xs="auto" className="my-1">
-            <Button type="submit" onClick={this.props.updateGenre}>Submit</Button>
+            <Button type="submit" onClick={this.onSubmitAction}>Submit</Button>
           </Col>
         </Form.Row>
       </Form>
