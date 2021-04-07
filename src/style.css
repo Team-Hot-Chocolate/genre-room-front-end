@@ -1,0 +1,18 @@
+.movieDisplay {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.img {
+  text-align: center;
+  margin: 0 auto;
+  margin-right: -120px;
+}
+
+.card {
+  margin: 0 auto;
+}
