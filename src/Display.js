@@ -38,13 +38,13 @@ class Display extends React.Component {
       console.log('no genre');
       const movieNoGenre = await axios.get(`${API_SERVER}/movies`, {email: this.props.auth0.user.email})
       console.log('movies without genre', movieNoGenre);
-      this.setState ({ movie: movieNoGenre.data, title: movieNoGenre.data.original_title, description: movieNoGenre.data.overview, releaseDate: movieNoGenre.data.release_date, src: movieNoGenre.data.poster_path, rating: movieNoGenre.data.vote_average });
+      this.setState ({ movie: movieNoGenre.data, title: movieNoGenre.data.title, description: movieNoGenre.data.overview, releaseDate: movieNoGenre.data.release_date, src: movieNoGenre.data.poster_path, rating: movieNoGenre.data.vote_average });
       // console.log('finding data', movieNoGenre.data.original_title);
     } else {
       console.log('theres movies');
       const movieWithGenre = await axios.get(`${API_SERVER}/movies/${this.state.genre}`, {email: this.props.auth0.user.email})
       console.log('movie with genre', movieWithGenre);
-      this.setState ({ movie: movieWithGenre.data, title: movieWithGenre.data.original_title, description: movieWithGenre.data.overview, releaseDate: movieWithGenre.data.release_date, src: movieWithGenre.data.poster_path, rating: movieWithGenre.data.vote_average});
+      this.setState ({ movie: movieWithGenre.data, title: movieWithGenre.data.title, description: movieWithGenre.data.overview, releaseDate: movieWithGenre.data.release_date, src: movieWithGenre.data.poster_path, rating: movieWithGenre.data.vote_average});
     }
     // if genre is '', get random movie user /movies route
     // else genre, the get /movies/genre, pass in genre into function
@@ -65,7 +65,7 @@ class Display extends React.Component {
     } else {
       console.log(this.state.genre);
     let newMovie = await axios.put(`${API_SERVER}/user/${this.state.genre}`, {email: this.props.auth0.user.email})
-    this.setState ({ movie: newMovie.data, title: newMovie.data.original_title, description: newMovie.data.overview, releaseDate: newMovie.data.release_date, src: newMovie.data.poster_path, rating: newMovie.data.vote_average });
+    this.setState ({ movie: newMovie.data, title: newMovie.data.title, description: newMovie.data.overview, releaseDate: newMovie.data.release_date, src: newMovie.data.poster_path, rating: newMovie.data.vote_average });
     }
   }
 

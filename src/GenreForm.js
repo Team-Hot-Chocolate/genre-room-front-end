@@ -18,7 +18,7 @@ class GenreForm extends React.Component {
 
   render() {
     return (
-      <Form >
+      <Form className="updateForm">
         <Form.Row className="align-items-center">
           <Col xs="auto" className="my-1">
             <Form.Label className="mr-sm-2" htmlFor="inlineFormCustomSelect" srOnly>
@@ -55,7 +55,7 @@ class GenreForm extends React.Component {
             </Form.Control>
           </Col>
           <Col xs="auto" className="my-1">
-            <Button type="submit" onClick={this.onSubmitAction}>Submit</Button>
+            <Button className="logbutton" variant="danger" type="submit" onClick={this.onSubmitAction}>Submit</Button>
           </Col>
         </Form.Row>
       </Form>

@@ -13,9 +13,9 @@ class Movie extends React.Component {
         <Container className="wholeMovie">
           <Row className="container">
             <Col className="img" xs={6} md={4}>
-              <Image src={`https://www.themoviedb.org/t/p/original${this.props.src}`} thumbnail />
+              <Image className="movImage" src={`https://www.themoviedb.org/t/p/original${this.props.src}`} thumbnail width="580" height="850"/>
             </Col>
-              <Card className="card" style={{ width: '24rem' }}>
+              <Card className="card" thumbnail style={{ width: '22rem' }}>
                 <Card.Title><h3>{this.props.title}</h3></Card.Title>
                 {/* <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/original${this.props.src}`} /> */}
                 <Card.Body>

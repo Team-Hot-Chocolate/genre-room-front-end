@@ -10,7 +10,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 class Header extends React.Component{
   render(){
     return(
-      <Navbar bg="dark" variant="dark">
+      <Navbar className="bars" bg="black" variant="dark">
         <Navbar.Brand href="/home">Genre Room</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>

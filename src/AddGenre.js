@@ -24,11 +24,11 @@ class AddGenre extends React.Component {
   render() {
     return (
       <>
-      <Button className="button" onClick={this.props.getMovies}>Get Recommendations</Button>
-      <Button className="button" onClick={this.displayModal}>Update Genre</Button>
+      <Button className="button" variant="danger" onClick={this.props.getMovies}>Get Recommendation</Button>
+      <Button className="button" variant="danger" onClick={this.displayModal}>Update Genre</Button>
       <Modal show={this.state.displayModal}>
-        <Modal.Dialog>
-          <Modal.Header closeButton>
+        <Modal.Dialog className="updateForm">
+          <Modal.Header>
             <Modal.Title>Update Genre</Modal.Title>
           </Modal.Header>
 
@@ -40,7 +40,7 @@ class AddGenre extends React.Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.closeModal}>Close</Button>
+            <Button className="logbutton" variant="secondary" onClick={this.closeModal}>Close</Button>
           </Modal.Footer>
         </Modal.Dialog>
       </Modal>
