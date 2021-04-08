@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 import Display from './Display';
 import { withAuth0 } from '@auth0/auth0-react';
-import Profile from './Profile';
 
 
 class App extends React.Component {
@@ -22,11 +21,6 @@ class App extends React.Component {
               {!this.props.auth0.isAuthenticated ?
               <Login /> :
               <Display />
-              }
-            </Route>
-            <Route exact path="/profile">
-              {this.props.auth0.isAuthenticated &&
-              <Profile />
               }
             </Route>
           </Switch>

@@ -59,6 +59,8 @@ h1 {
   color: rgb(255, 255, 255);
   border: rgb(66, 12, 12);
   border-radius: 2em;
+  height: fit-content;
+  margin-top: 5px;
 }
 
 .logbutton:hover {
@@ -87,3 +89,21 @@ h1 {
   border-radius: 3em;
 }
 
+#logo:hover {
+  color: red;
+}
+
+#header-user-image {
+  width: 36px;
+  border-radius: 50%;
+}
+
+#header-name {
+  padding-top: 12px;
+  padding-right: 15px;
+  color: rgb(193, 193, 193);
+}
+
+#header-name:hover {
+  color: rgb(193, 193, 193);
+}

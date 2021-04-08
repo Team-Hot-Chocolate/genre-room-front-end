@@ -8,6 +8,7 @@ class Login extends React.Component {
     return(
       <>
         <center>
+          <h1>Genre Room</h1>
           <Card className="login" style={{ width: '18rem', height: '12rem' }}>
             <Card.Body>
               <br></br>
