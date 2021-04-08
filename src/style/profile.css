@@ -1,0 +1,27 @@
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 87vh;
+  width: 100%;
+}
+
+#profile-card {
+  padding: 40px 20px 20px;
+  align-items: center;
+  background-color:  rgba(0, 0, 0, 0);
+  color: rgb(152, 0, 5);
+}
+
+#name {
+  text-align: center;
+  color: rgb(212, 32, 38);
+}
+
+#profile-img {
+  margin-top: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid rgb(152, 0, 5);
+}
