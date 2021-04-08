@@ -25,13 +25,14 @@ class Display extends React.Component {
   }
 
   componentDidMount = async () => {
-    this.genreTitle();
     var getUserInfo = await axios.get(`${API_SERVER}/user`, {params: {email: this.props.auth0.user.email}});
     //add genre to state
     if (getUserInfo.data === 'user not in db') {
       getUserInfo = await axios.post(`${API_SERVER}/user`, {email: this.props.auth0.user.email, name: this.props.auth0.user.name});
     }
-    console.log('getting user info', getUserInfo);
+    console.log('getting user info', getUserInfo.data.genre);
+    this.setState ({ genre: getUserInfo.data.genre});
+    this.genreTitle();
   }
 
   genreTitle = () => {
