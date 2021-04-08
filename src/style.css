@@ -1,0 +1,89 @@
+body {
+  background: url("./images/backgroundChairs.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.movieDisplay {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.img {
+  text-align: center;
+  margin: 0 auto;
+  margin-right: -120px;
+}
+
+.movImage {
+  background-color: rgb(230, 228, 228);
+  height: 30.5rem;
+}
+
+.card {
+  margin: 0 auto;
+  background-color: rgb(230, 228, 228);
+  height: 30.5rem;
+  overflow: auto;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color:rgb(230, 216, 216);
+  font-family: fantasy;
+  font-size: 72;
+}
+
+.button {
+  margin: 3rem 2rem 3rem 2rem;
+  background-color: rgb(212, 32, 38);
+  color: rgb(255, 255, 255);
+  border: rgb(66, 12, 12);
+  border-radius: 2em;
+}
+
+.button:hover {
+  background-color: rgb(87, 12, 14);
+  border: solid 1px whitesmoke;
+}
+
+.logbutton {
+  background-color: rgb(212, 32, 38);
+  color: rgb(255, 255, 255);
+  border: rgb(66, 12, 12);
+  border-radius: 2em;
+}
+
+.logbutton:hover {
+  background-color: rgb(87, 12, 14);
+  border: solid 1px whitesmoke;
+}
+
+.bars {
+  background-color: black;
+}
+
+#cruddy {
+  color: gray;
+}
+
+.updateForm {
+  background-color: rgb(255, 255, 255);
+}
+
+.modal-backdrop {
+  background-color: rgb(0, 0, 0);
+}
+
+.login {
+  background-color: rgb(21, 20, 20);
+  border-radius: 3em;
+}
+

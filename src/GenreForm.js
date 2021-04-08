@@ -5,9 +5,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
 class GenreForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {a: ''}
+  }
+  
+  onSubmitAction = (e) => {
+    e.preventDefault();
+    this.props.updateGenre();
+    this.props.closeModal();
+  }
+
   render() {
     return (
-      <Form >
+      <Form className="updateForm">
         <Form.Row className="align-items-center">
           <Col xs="auto" className="my-1">
             <Form.Label className="mr-sm-2" htmlFor="inlineFormCustomSelect" srOnly>
@@ -32,7 +43,7 @@ class GenreForm extends React.Component {
               <option value="10751">Family</option>
               <option value="14">Fantasy</option>
               <option value="36">History</option>
-              <option value="Horror">Horror</option>
+              <option value="27">Horror</option>
               <option value="10402">Music</option>
               <option value="9648">Mystery</option>
               <option value="10749">Romance</option>
@@ -44,7 +55,7 @@ class GenreForm extends React.Component {
             </Form.Control>
           </Col>
           <Col xs="auto" className="my-1">
-            <Button type="submit" onClick={this.props.updateGenre}>Submit</Button>
+            <Button className="logbutton" variant="danger" type="submit" onClick={this.onSubmitAction}>Submit</Button>
           </Col>
         </Form.Row>
       </Form>
