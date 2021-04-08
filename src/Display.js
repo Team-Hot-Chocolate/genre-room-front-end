@@ -4,6 +4,7 @@ import AddGenre from './AddGenre';
 import { withAuth0 } from '@auth0/auth0-react';
 import Movie from './Movie';
 import './style.css';
+import Genres from './Genres.json';
 
 
 const API_SERVER = process.env.REACT_APP_SERVER;
@@ -18,18 +19,26 @@ class Display extends React.Component {
       description: '',
       releaseDate: '',
       src: '',
-      rating: ''
+      rating: '',
+      genreTitle: null
     };
   }
 
   componentDidMount = async () => {
-    console.log('component did mount');
-    let getUserInfo = await axios.get(`${API_SERVER}/user`, {email: this.props.auth0.user.email});
+    this.genreTitle();
+    var getUserInfo = await axios.get(`${API_SERVER}/user`, {params: {email: this.props.auth0.user.email}});
     //add genre to state
     if (getUserInfo.data === 'user not in db') {
-      axios.post(`${API_SERVER}/user`, {email: this.props.auth0.user.email, name: this.props.auth0.user.name});
+      getUserInfo = await axios.post(`${API_SERVER}/user`, {email: this.props.auth0.user.email, name: this.props.auth0.user.name});
     }
     console.log('getting user info', getUserInfo);
+  }
+
+  genreTitle = () => {
+    console.log('function activator');
+    let genreChoice = Genres[this.state.genre]
+    console.log(genreChoice);
+    this.setState ({ genreTitle: genreChoice })
   }
 
   getMovies = async () => {
@@ -45,6 +54,7 @@ class Display extends React.Component {
       const movieWithGenre = await axios.get(`${API_SERVER}/movies/${this.state.genre}`, {email: this.props.auth0.user.email})
       console.log('movie with genre', movieWithGenre);
       this.setState ({ movie: movieWithGenre.data, title: movieWithGenre.data.title, description: movieWithGenre.data.overview, releaseDate: movieWithGenre.data.release_date, src: movieWithGenre.data.poster_path, rating: movieWithGenre.data.vote_average});
+      console.log(movieWithGenre);
     }
     // if genre is '', get random movie user /movies route
     // else genre, the get /movies/genre, pass in genre into function
@@ -59,6 +69,7 @@ class Display extends React.Component {
   }
 
   updateGenre = async (e) => {
+    this.genreTitle();
     if (this.state.genre === 'Remove Genre'){
       console.log('removing genre', this.props.auth0.user.email);
       await axios.delete(`${API_SERVER}/user`, { data: {email: this.props.auth0.user.email}})
@@ -72,7 +83,8 @@ class Display extends React.Component {
   render() {
     return (
       <div className="movieDisplay">
-        <h1>Genre Room</h1>
+        {this.state.genreTitle?<h1>{this.state.genreTitle} Room</h1> :
+        <h1>Genre Room</h1>}
         {this.state.title &&
         <Movie 
         getMovies={this.getMovies}
