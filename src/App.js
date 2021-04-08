@@ -9,7 +9,6 @@ import {
 import Display from './Display';
 import { withAuth0 } from '@auth0/auth0-react';
 import Profile from './Profile';
-import Footer from './Footer';
 
 
 class App extends React.Component {
